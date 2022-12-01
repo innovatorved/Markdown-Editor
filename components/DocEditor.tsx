@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { EditorContentChanged } from "../interface/interfaces";
+import { downloadHTMLFile } from "../helpers/download";
 
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
@@ -21,7 +22,7 @@ export default function App() {
     setTitle(e.target.value);
   };
 
-  const downloadHTMLFile = () => {
+  const downloadHTMLFile = (title: string, editorHtmlValue: string) => {
     let ele = document.createElement("a");
     const txt = `${title === "" ? `United` : title}\n\n${editorHtmlValue}\n`;
     ele.setAttribute(
@@ -51,7 +52,10 @@ export default function App() {
           />
         </div>
         <div className="icons">
-          <div className="download_icon" onClick={downloadHTMLFile}>
+          <div
+            className="download_icon"
+            onClick={() => downloadHTMLFile(title, editorHtmlValue)}
+          >
             <FileDownloadOutlinedIcon />
           </div>
         </div>

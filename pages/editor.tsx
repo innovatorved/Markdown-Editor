@@ -1,8 +1,9 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import Loader from "../components/Loader";
 
 const DocEditor = dynamic(() => import("../components/DocEditor"), {
+  loading: () => <Loader />,
   ssr: false,
 });
 
@@ -14,9 +15,7 @@ export default function editor() {
         <meta name="description" content="Editor is Open" />
       </Head>
       <div className="editor">
-        <Suspense fallback={`Loading...`}>
-          <DocEditor />
-        </Suspense>
+        <DocEditor />
       </div>
     </div>
   );

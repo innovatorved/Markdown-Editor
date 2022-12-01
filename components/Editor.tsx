@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import ReactQuill, { Quill } from "react-quill";
 import BlotFormatter from "quill-blot-formatter";
 
-import Emoji from "quill-emoji";
+const Emoji = require("quill-emoji");
 
 import { markdownToHtml, htmlToMarkdown } from "../lib/Parser";
 import { EditorProps } from "../interface/interfaces";

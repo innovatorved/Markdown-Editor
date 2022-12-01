@@ -11,7 +11,7 @@ const DocEditor = dynamic(() => import("../components/DocEditor"), {
   ssr: false,
 });
 
-export default function editor() {
+export default function Demo() {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
 

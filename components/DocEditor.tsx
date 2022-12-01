@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { EditorContentChanged } from "../interface/interfaces";
+import { EditorContentChanged, DocEditor } from "../interface/interfaces";
 import { downloadHTMLFile } from "../helpers/download";
 
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
@@ -8,32 +8,24 @@ import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import Editor from "./Editor";
 import Viewer from "./Viewer";
 
-export default function App() {
+export default function App(props: DocEditor) {
+  const { title, onChange, setTitle, content } = props;
   const [editorHtmlValue, setEditorHtmlValue] = useState<string>("");
   const [editorMarkdownValue, setEditorMarkdownValue] = useState<string>("");
-  const [title, setTitle] = useState<string>("United");
 
   const onEditorContentChanged = (content: EditorContentChanged) => {
     setEditorHtmlValue(content.html);
     setEditorMarkdownValue(content.markdown);
+    if (onChange) {
+      onChange({
+        title: title,
+        content: content.markdown,
+      });
+    }
   };
 
   const ChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
-  };
-
-  const downloadHTMLFile = (title: string, editorHtmlValue: string) => {
-    let ele = document.createElement("a");
-    const txt = `${title === "" ? `United` : title}\n\n${editorHtmlValue}\n`;
-    ele.setAttribute(
-      "href",
-      "data:text/plain;charset=utf-8," + encodeURIComponent(txt)
-    );
-    ele.setAttribute("download", `${title}.html`);
-    ele.style.display = "none";
-    document.body.appendChild(ele);
-    ele.click();
-    document.body.removeChild(ele);
   };
 
   return (
@@ -60,7 +52,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      <Editor value={""} onChange={onEditorContentChanged} />
+      <Editor content={content} onChange={onEditorContentChanged} />
     </div>
   );
 }

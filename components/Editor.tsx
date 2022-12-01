@@ -24,7 +24,9 @@ const TOOLBAR_OPTIONS = [
 ];
 
 export default function Editor(props: EditorProps) {
-  const [value, setValue] = useState<string>(markdownToHtml(props.value || ""));
+  const [value, setValue] = useState<string>(
+    markdownToHtml(props.content || "")
+  );
   const reactQuillRef = useRef<ReactQuill>(null);
 
   const onChange = (content: string) => {

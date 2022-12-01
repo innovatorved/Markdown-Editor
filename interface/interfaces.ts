@@ -7,7 +7,19 @@ export interface EditorContentChanged {
   markdown: string;
 }
 
+export interface DocEditorOnChange {
+  title: string;
+  content: string;
+}
+
 export interface EditorProps {
-  value?: string;
+  content?: string;
   onChange?: (changes: EditorContentChanged) => void;
+}
+
+export interface DocEditor {
+  title: string;
+  setTitle: any;
+  content?: string;
+  onChange?: (changes: DocEditorOnChange) => void;
 }

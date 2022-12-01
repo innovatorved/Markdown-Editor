@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
 
 body {
   font-family: sans-serif;
@@ -250,7 +250,7 @@ textarea {
 }
 
 .form__group {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   position: relative;
   padding: 15px 0 0;
   margin: 10px;

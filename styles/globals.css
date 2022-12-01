@@ -3,6 +3,8 @@ body {
   margin: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
 body {
   font-family: sans-serif;
   background: #f3f1f2;
@@ -24,8 +26,21 @@ textarea {
 }
 
 .app {
-  margin: 3rem 2rem;
+  margin: 1rem 2rem;
   max-width: 70em;
+}
+
+.editor_head {
+  display: flex;
+  margin-right: 5px;
+}
+
+.icons {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
 }
 
 .editor {
@@ -35,8 +50,7 @@ textarea {
 
 @media only screen and (max-width: 500px) {
   .app {
-    margin: 1.6rem 0.5rem;
-    display: inherit;
+    margin: 1rem 0.5rem;
     max-width: 50em;
   }
 }
@@ -233,4 +247,36 @@ textarea {
 
 .ldio-9u8gbddmqad div {
   box-sizing: content-box;
+}
+
+.form__group {
+  font-family: 'Roboto Slab', serif;
+  position: relative;
+  padding: 15px 0 0;
+  margin: 10px;
+  margin-top: 0px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #131212;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #131212;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+  box-shadow: none;
 }

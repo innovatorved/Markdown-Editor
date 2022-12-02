@@ -23,3 +23,7 @@ export interface DocEditor {
   content?: string;
   onChange?: (changes: DocEditorOnChange) => void;
 }
+
+export interface UseRedirectAfterSomeSecondsInterface {
+  secondsRemaining: Number;
+}
